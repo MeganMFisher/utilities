@@ -62,15 +62,42 @@ var _ = { };
 
   // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
   _.reject = function(collection, iterator) {
+    let rejectedArr = [];
+    for(var i = 0; i < collection.length; i++) {
+      if(!iterator(collection[i])) {
+        rejectedArr.push(collection[i])
+      } 
+    }
+    return rejectedArr;
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+
+    return array.filter((e, i, arr) => {
+      return arr.indexOf(e) === i;
+    });
+
+    ///////////////////////////////////
+    // let noDupsArr = [];
+    // for(var i = 0; i < array.length; i++) {
+    //   for(var j = 0; j < noDupsArr.length; j++) {
+    //     if(array[i] !== noDupsArr[i]) {
+    //       noDupsArr.push(array[i])
+    //     }
+    //   }
+    // }
+    // return noDupsArr;
+
   };
 
 
   // Return the results of applying an iterator to each element.
   _.map = function(array, iterator) {
+   for(var i = 0; i < array.length; i++) {
+     array[i] = iterator(array[i])
+   }
+   return array
   };
 
   // Takes an array of objects and returns and array of the values of
