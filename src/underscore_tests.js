@@ -16,11 +16,16 @@ var _ = { };
   // Return an array of the first n elements of an array. If n is undefined,
   // return just the first element.
   _.first = function(array, n) {
+
+    return n ? array.slice(0,n) : array[0] 
+
   };
 
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
+    var index = array.lastIndexOf(n) 
+    return !n ? array.pop() : n < array.length ? array.splice(index) : array
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -31,6 +36,8 @@ var _ = { };
   // Returns the index at which value can be found in the array, or -1 if value
   // is not present in the array.
   _.indexOf = function(array, target){
+  
+
   };
 
   // Return all elements of an array that pass a truth test ('iterator' function argument)
@@ -131,6 +138,9 @@ var _ = { };
 
   // Shuffle an array.
   _.shuffle = function(array) {
+
+    // return _.shuffle(array)
+
   };
 
   // Sort the object's values by a criterion produced by an iterator.
